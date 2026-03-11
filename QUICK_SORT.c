@@ -16,3 +16,12 @@ int partionquicksort(int arr[],int p, int q){
     arr[i] = tempt;
     return i;
 }
+
+void quicksort(int arr[],int p,int r){
+    if(p<r){
+        int q = partionquicksort(arr,p,r);
+        quicksort(arr,p,q);
+        quicksort(arr,q+1,r);
+        //Give intial call of quicksort(arr,0,n-1) 
+    }
+}
