@@ -28,8 +28,8 @@ void merge(int arr[],int p,int q,int r){
 }
 
 void mergesort(int arr[],int p,int r){
-    while(p<r){
-        int q = (p+r)/2;
+    if(p<r){
+        int q = p + ((r-p)/2);
         mergesort(arr,p,q);
         mergesort(arr,q+1,r);
         merge(arr,p,q,r);
