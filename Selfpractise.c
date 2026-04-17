@@ -42,8 +42,8 @@ void merge(int arr[],int p,int q,int r){
 }
 
 void mergesort(int arr[],int p,int r){
-    while(p<r){
-        int q = (p+r)/2;
+    if(p<r){
+        int q = p + ((r-p)/2);
         mergesort(arr,p,q);
         mergesort(arr,q+1,r);
         merge(arr,p,q,r);
@@ -87,18 +87,18 @@ int partionquicksort(int arr[],int p, int q){
             arr[j]=temp;  
         }
     }
-    int tempt = arr[p];
+    int temp = arr[p];
     arr[p] = arr[i];
-    arr[i] = tempt;
+    arr[i] = temp;
     return i;
 }
 
 void quicksort(int arr[],int p,int r){
     if(p<r){
         int q = partionquicksort(arr,p,r);
-        quicksort(arr,p,q);
+        quicksort(arr,p,q-1);
         quicksort(arr,q+1,r);
-        //Give intial call of quicksort(arr,0,n-1) 
+        //Give initial call quicksort(arr,0,n-1)
     }
 }
 
